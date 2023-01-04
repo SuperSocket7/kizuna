@@ -1,0 +1,112 @@
+
+body{
+	padding:20px 20px 80px 10px;
+}
+
+h1{
+	letter-spacing:-2px;
+	font-family:Verdana, Meiryo,sans-serif;
+	color:#333;
+	font-size:32px;
+}
+
+
+/*** thread ***/
+dl#thread dd{
+	margin-bottom:1em;
+	margin-top:0.1em;
+}
+
+span.name{
+	font-weight:bold;
+	color:#228b22;
+}
+span.url{
+	color:red;
+}
+
+
+
+/*** form ***/
+form{
+	margin-top:3em;
+}
+form input[type="text"] {
+	width:200px;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgba(200,200,200,0.2)inset;
+	border: 1px solid #888;
+	height:21px;
+	padding:5px 6px 3px 12px;
+	font-size:15px;
+	vertical-align:middle;
+}
+
+form textarea {
+	border-radius: 5px 0 0 5px;
+	box-shadow: 5px 5px 5px rgba(200,200,200,0.2)inset;
+	border: 1px solid #888;
+	padding:14px 10px 5px 14px;
+	font-size:15px;
+	width:600px;
+	height:12em;
+	margin-top:5px;
+}
+
+
+form input[type="submit"], input[type="reset"]{
+	text-decoration: none;
+	text-align: center;
+	padding: 9px 15px 8px 15px;
+	font-size: 16px;
+	color: #fff;
+	background-color: #5ba825;
+	background: linear-gradient(to bottom, #84be5c 0%, #84be5c 66%, #5ba825 66%, #5ba825 100%);
+	border: 1px solid #377d00;
+	border-radius: 5px;
+	line-height:1;
+	vertical-align:middle;
+	margin-top:10px;
+}
+form.readonly{
+	display: none;
+}
+
+/*** res popup ***/
+.anchor {
+	position:relative;
+}
+.popup {
+	color: #fff;
+	background-color: #000;
+	position: absolute;
+	bottom: 2em;
+	left: 0.5em;
+	z-index: 9999;
+	padding: 0.7em;
+	border-radius: 0.5em;
+	white-space: nowrap;
+}
+
+.popup:after {
+	width: 100%;
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0.5em;
+	bottom: -8px;
+	border-bottom:8px solid transparent;
+	border-left:8px solid #000;
+}
+
+.popupmessage {
+	padding-left:1.2em;
+	padding-top:0.2em;
+}
+
+.popup a:link, .popup a:visited, .popup span{
+	color:#fff;
+}
+.popup span.url{
+	display:none;
+}

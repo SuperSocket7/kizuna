@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="shift_jis">
+  <title>絆板【2ch互換の掲示板スクリプト】</title>
+  <style>
+body{
+	font-family:Verdana, Meiryo, sans-serif;
+	font-size:16px;
+	letter-spacing:-1px;
+	padding:20px;
+	color:#333;
+	line-height:1.4;
+}
+h1{
+	letter-spacing: -1px;
+	color: #e87830;
+	font-size: 42px;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	font-weight: normal;
+}
+h1 > a:link{
+	color: #e87830;
+}
+h1 > a:visited{
+	color: #e87830;
+}
+h1 > a:hover{
+	color: #cc0000;
+}
+h2 {
+	margin:40px 0 26px 0;
+	font-family:"ＭＳ Ｐゴシック", sans-serif;
+	padding:6px 20px;
+	font-size:22px;
+	color:#fff;
+	letter-spacing:1px;
+	border-radius:4px;
+	box-shadow: 3px 3px 1px 0px #eee;
+	background-color:#5ba825;
+	background:linear-gradient(to bottom, #84be5c 0%, #84be5c 50%, #5ba825 50%, #5ba825 100%);
+	border:solid 1px #379900;
+	text-shadow: 0px 0px 3px 0px #ccc;
+
+}
+
+table{
+border-collapse:collapse;
+margin-bottom:30px;
+}
+table th{
+background-color:#eee;
+border:solid 1px #bbbbbb;
+padding:4px;
+font-weight:normal;
+font-size:13px;
+}
+table td{
+border:solid 1px #bbbbbb;
+padding:4px;
+font-size:13px;
+}
+
+dd{
+	margin-bottom:1em;
+}
+.mininote{
+color:#aaa;
+font-size:14px;
+}
+article{
+width:1080px;
+margin:0 auto;
+}
+
+/* アコーディオン */
+.accordion{
+	margin:0 0 35px 0;
+}
+.accordion_title{
+	color:#fff;
+	font-size:16px;
+	font-weight:normal;
+	text-align:left;
+	background-color:#121212;
+	padding:5px 15px;
+	margin:0;
+	border:1px solid #2a2a2a;
+	border-radius:4px 4px 0 0;
+}
+.accordion_content{
+	padding:20px;
+	margin:0;
+	border:1px solid #2a2a2a;
+	border-top:none;
+	border-radius:0 0 4px 4px;
+	box-shadow:2px 2px 1px rgba(0,0,0,0.1);
+}
+.accordion_title:hover{
+	color:yellow;
+	cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+
+
+<article>
+<h1><a href="http://age.s22.xrea.com/kizuna/readme.html">絆板</a></h1>
+
+<p>2ch互換の掲示板スクリプトです。</p>
+</article>
+
+
+
+<article>
+<h2>ダウンロードと動作条件</h2>
+
+<dl>
+<dt>ダウンロード</dt>
+	<dd><a href="http://age.s22.xrea.com/kizuna/kizuna011.zip">kizuna.zip</a> Ver0.11</dd>
+<dt>動作条件</dt>
+	<dd>PHPが動作すること<br>mod_rewrite(.htaccess)が動作すること</dd>
+</dl>
+<article>
+
+
+<article>
+<h2>サンプルと特徴</h2>
+
+
+<ul>
+	<li>サンプル→<a href="http://age.s22.xrea.com/kizuna/bbs/" target="_blank">スクリーンショットで紹介</a></li>
+	<li>各種2chブラウザから読み書きできます</li>
+	<li>書き込むことで板の管理ができます。とても便利な仕組みです</li>
+	<li>目標は優れたデザイン・便利な機能・簡単に設置・面白い仕掛けなど。</li>
+</ul>
+
+
+<h2>設置方法</h2>
+<dl>
+<dt>1. パスワードの設定</dt>
+	<dd>ダウンロードして解凍したら、testフォルダ内にある「<strong>setting.php</strong>」を開いて<strong>パスワード</strong>を設定してください。<br>
+	初期パスワード値→#kizuna (パスワードの先頭は#を推奨)</dd>
+<dt>2. プログラムのアップロード</dt>
+	<dd><strong>test</strong>フォルダを、FTPで丸ごと<strong>アップロード</strong></dd>
+<dt>3. 板の設置</dt>
+	<dd>3-1. <strong>boardname</strong>フォルダを、FTPで丸ごと<strong>アップロード</strong>。(testフォルダと並ぶように)<br>
+3-2. boardnameという名前が板のURLとなります。この名前は自由に変更できます。(2chに例えるとnewsplusやnews4vipに該当)</dd>
+</dl>
+
+<p>以上で設置は完了です。<br>もし板名がboardnameなら「http://あなたのサイトのアドレス/boardname/」で掲示板にアクセスできます。</p>
+
+
+<p class="mininote">※板を追加して設置したい場合は「3. 板の設置」を参考に設置してください。</p>
+</article>
+
+<h2>パーミッションの設定</h2>
+
+<p>設置はしたけど書き込みするとエラーが発生する場合は、次のように3ヶ所のパーミッションを変更してください。boardnameフォルダ内です。</p>
+
+<ul>
+  <li><strong>subject.txt</strong>のパーミッション → 606</li>
+  <li><strong>datフォルダ</strong>と<strong>kakoフォルダ</strong>のパーミッション → 707</li>
+</ul>
+
+<article>
+<h2>サーバ毎の設置方法</h2>
+
+<p>サーバ毎に設置のポイントを紹介します。</p>
+<!-- <section class="accordion"><h3 class="accordion_title accordion_open"></h3><div class="accordion_content"></div></section> -->
+<section class="accordion"><h3 class="accordion_title accordion_open">はじめに。セーフモード問題</h3><div class="accordion_content">
+お使いのサーバで<strong>PHPのセーフモードが有効</strong>だと、管理コマンドで「倉庫」を実行した時にエラーが発生します。<br>
+(PHPからフォルダを作成し、そのフォルダの中にファイルを作成しようとするとエラーになるので)<br><br>
+
+この問題はセーフモードを無効にすれば解決することができます。(PHP5.4からはセーフモードが廃止されました)<br>
+しかし、サーバーによってはセーフモードを無効にできない場合があるので、その場合はサーバ毎に対処する必要があります。<br>
+</div></section>
+
+
+<section class="accordion"><h3 class="accordion_title accordion_open">XREA(CORESERVER)　◎設置できます</h3><div class="accordion_content">
+XREA(CORESERVER)ではセーフモードが強制されます。<br><br>
+bbs.phpをCGIとして動作させることによって、この問題を解決することができます。<br>testフォルダ内にある.htaccessに次の3行を加えてください。
+<pre>
+&lt;Files bbs.php&gt;
+AddHandler application/x-httpd-phpcgi .php
+&lt;/Files&gt;
+</pre>
+
+
+<br>
+XREAの無料版で正常に動かない場合は、自動挿入広告が悪さをしている可能性があります。<br>
+testフォルダ内にある.htaccessに次の1行を加えて自動挿入広告を無効にしてください。<br>
+<pre>
+LayoutIgnoreURI *
+</pre></div></section>
+
+</article>
+
+
+
+<article>
+<h2>管理方法</h2>
+
+<p>絆板はスレッドに書き込むことで板を管理します。(管理画面はないです)</p>
+<table id="table_admincommand">
+<tr><th>-</th><th>名前欄</th><th>URL欄</th><th>本文欄</th><th>入力例と補足説明</th></tr>
+<tr><th>レスの削除</th><td>削除</td><td>#パスワード</td><td>削除対象番号へのレス</td><td>&gt;&gt;5 (5番のレスを削除)<br>&gt;&gt;10-20 (10番から20番までのレスを一括削除)</td></tr>
+<tr><th>スレッドの削除</th><td>削除</td><td>#パスワード</td><td>スレのURL</td><td>http://www.example.com/test/read.cgi/bbs/1234567890/<br>改行で区切って複数入力することも可能です。</td></tr>
+<tr><th>スレッドの過去ログ化</th><td>倉庫</td><td>#パスワード</td><td>スレのURL</td><td>指定したスレを過去ログ倉庫に移動。いわゆるDAT落ちです。<br>改行で区切って複数入力することも可能です。</td></tr>
+<tr><th>板の再構築</th><td>復帰</td><td>#パスワード</td><td>-</td><td>スレ一覧(subject.txt)が壊れた場合に、それを復旧させるコマンドです。</td></tr>
+<tr><th>2chからスレを輸入</th><td>2ch</td><td>#パスワード</td><td>2chのスレURL</td><td>http://kohada.2ch.net/test/read.cgi/php/1207196460/<br>2chのスレを丸ごと現在の板にコピーします。(スレが立ちます)<br>改行で区切って複数入力することも可能ですが、PHPの制限時間に注意</td></tr>
+<tr><th>2chから1だけ輸入</th><td>2ch</td><td>#パスワード</td><td>2chのスレURL/1</td><td>http://kohada.2ch.net/test/read.cgi/php/1207196460/1<br>2chのスレから&gt;&gt;1だけ現在の板にコピーします。(スレが立ちます)<br>改行で区切って複数入力することも可能ですが、PHPの制限時間に注意</td></tr>
+</table>
+
+<p>処理が完了するとエラーが表示されますが仕様です。</p>
+</article>
+
+
+
+<article>
+<h2>FAQ - よくある質問</h2>
+
+<!-- <section class="accordion"><h3 class="accordion_title accordion_open">Q </h3><div class="accordion_content"></div></section> -->
+
+
+
+<section class="accordion"><h3 class="accordion_title accordion_open">Q デザインを変更したい</h3><div class="accordion_content">
+板ごとにデザインを設定することができます。<br><br>
+
+掲示板のデザイン → bbs.html ＋ bbs.css<br>
+スレッドのデザイン → thread.html ＋ thread.css<br>
+スレ毎、レス毎のデザイン → setting.php
+</div></section>
+
+
+<section class="accordion"><h3 class="accordion_title accordion_open">Q 板を増やしたい</h3><div class="accordion_content">
+設置方法に書いてある「3. 板の設置」を行ってください
+</div></section>
+
+
+<section class="accordion"><h3 class="accordion_title accordion_open">Q subject.txtが開けません / DATファイルが作成できません</h3><div class="accordion_content">
+subject.txt → <strong>subject.txt</strong>のパーミッションを606に設定してください。<br>
+DATファイル → <strong>datフォルダ</strong>と<strong>kakoフォルダ</strong>のパーミッションを707に設定してください。
+</div></section>
+
+<section class="accordion"><h3 class="accordion_title accordion_open">Q 書き込みフォームが表示されない</h3>
+<div class="accordion_content">標準ではJavaScriptが有効でないと書き込みフォームが表示されません。(スパム対策)<br>
+テンプレートを修正すればJavaScriptが無効でも動作するようになります。</div></section>
+
+
+<section class="accordion" id="faq1"><h3 class="accordion_title accordion_open">Q mod_rewrite(.htaccess)が動作しないサーバーで動かせますか？</h3>
+<div class="accordion_content">mod_rewriteは、testフォルダ内にある"read.php""bbs.php""subbbs.php"の拡張子をphpからcgiに書き換えるために必要になります<br>
+この対策ができればmod_rewriteは不要になります。(例えばこれらの拡張子をcgiに変更しても動作するとか)</div></section>
+
+
+<section class="accordion"><h3 class="accordion_title accordion_open">Q 2chブラウザから過去ログを読む方法は？</h3>
+<div class="accordion_content">2chブラウザから過去ログを読めるようにするには、<strong>kakoフォルダ</strong>に<strong>.htaccess</strong>を設置する必要があります。<br>
+これは板ごとに必要です<br><br>
+
+仮に板のURLを「http://example.com/<strong>kizuna</strong>/<strong>bbs</strong>/」とした場合<br>
+JaneStyleとかちゅ～しゃに対応させたサンプルを置いておきます。(太字の箇所は各自変更してください)
+<pre>
+# この.htaccessファイルはkakoフォルダに設置してください
+RewriteEngine on
+# かちゅ～しゃから過去ログDATを読めるようにする (過去ログHTMLは標準で読める)
+RewriteRule ^[0-9]{3}/([0-9]{4})([0-9])([0-9]+)\.dat$ /<strong>kizuna</strong>/<strong>bbs</strong>/kako/$1/$1$2/$1$2$3.dat [L]
+# JaneStyleから過去ログHTMLを読めるようにする (過去ログDATは標準で読める)
+RewriteRule /([0-9]+)\.html$ /<strong>kizuna</strong>/test/read.cgi/<strong>bbs</strong>/$1/ [R,L]
+
+</pre>
+</div></section>
+
+<section class="accordion"><h3 class="accordion_title accordion_open">Q かちゅ～しゃから利用するには？</h3><div class="accordion_content">
+かちゅ～しゃを使っている人は、PATHINFO形式の外部掲示板に対応できるように、クライアント側で設定する必要があります。<br>
+かちゅ～しゃのプログラムが入っているフォルダの中に「pathinfo.txt」というファイルを作成して、サイトのURLを記述してください。<br>
+例えば「http://example.com/」と記述すれば、それ以下にある全ての板がPATHINFO対応になります。(複数あるなら改行する)</div></section>
+
+<section class="accordion"><h3 class="accordion_title accordion_open">Q 著作権やライセンスは？</h3>
+<div class="accordion_content">著作権は放棄するので自由に使ってください！</div></section>
+</article>
+
+
+
+<article>
+<h2>更新履歴</h2>
+
+<dl>
+<dt><a href="http://age.s22.xrea.com/kizuna/kizuna011.zip">Ver0.11</a> 2014/09/16</dt>
+	<dd>全面作り直し。テンプレート対応</dd>
+<dt><a href="http://age.s22.xrea.com/kizuna/kizuna010.zip">Ver0.10</a> 2013/07/02</dt>
+	<dd>初公開</dd>
+</dl>
+</article>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".accordion_content").css("display","none");
+  $(".accordion_content_open").css("display","block");
+  $(".accordion_title").click(function(){
+  if($("+.accordion_content",this).css("display")=="none"){
+         $(this).addClass("accordion_open");
+         $("+.accordion_content",this).slideDown("normal");
+  }
+  else{
+    $(this).removeClass("accordion_open");
+    $("+.accordion_content",this).slideUp("normal");
+  }
+  });
+});
+</script>
+
+</body>
+</html>

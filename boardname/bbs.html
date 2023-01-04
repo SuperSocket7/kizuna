@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="shift_jis">
+  <title>掲示板</title>
+  <link href="./bbs.css" rel="stylesheet">
+</head>
+<body>
+
+
+<main>
+<table id="board">
+<tr><th id="no">No</th><th id="title">タイトル</th><th id="rescount">レス</th></tr>
+[[threadlist]]
+</table>
+</main>
+
+
+<script>
+var url   = "../test/bbs.cgi";
+var bbs   = "[[bbs]]";
+var cname = "[[cookie_name]]";
+var cmail = "[[cookie_mail]]";
+var sitekey = "[[sitekey]]";
+document.write('<form action="'+ url +'" method="POST" id="threadform">');
+document.write('<div class="formline"><label for="subject">題名</label><input id="subject" name="subject" type="text"></div>');
+document.write('<div class="formline"><td><label for="FROM">名前</label><input id="FROM" type="text" name="FROM" value="'+ cname +'">');
+document.write('<label for="mail">URL</label><input id="mail" name="mail" type="text" value="'+ cmail +'"></div>');
+document.write('<div class="formline"><textarea name="MESSAGE"></textarea></div>');
+document.write('<div class="g-recaptcha" data-sitekey="'+ sitekey +'"></div>');
+document.write('<div class="formline"><input type="submit" name="submit" value="新規スレッド作成"></div>');
+document.write('<input type="text" name="url" value="" id="trap1"><input type="password" name="password" value="" id="trap2">');
+document.write('<input type="hidden" name="bbs" value="'+ bbs +'">');
+document.write('</form>');
+document.getElementById('trap1').style.display = "none";
+document.getElementById('trap2').style.display = "none";
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+</body>
+</html>
+

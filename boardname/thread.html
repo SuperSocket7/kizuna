@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="shift_jis">
+  <title>[[subject]]</title>
+  <link href="[[URL]][[bbs]]/thread.css" rel="stylesheet">
+</head>
+<body>
+
+
+<nav><a href="[[URL]][[bbs]]/">掲示板に戻る</a></nav>
+
+<main>
+<h1>[[subject]]</h1>
+
+
+<dl id="thread">
+[[thread]]
+</dl>
+</main>
+
+
+
+<script>
+var url   = "[[URL]]test/bbs.cgi";
+var bbs   = "[[bbs]]";
+var key   = "[[key]]";
+var cname = "[[cookie_name]]";
+var cmail = "[[cookie_mail]]";
+var sitekey = "[[sitekey]]";
+document.write('<form action="'+ url +'" method="POST" id="resform" class="[[readonly]]">');
+document.write('<input type="hidden" name="bbs" value="'+ bbs +'">');
+document.write('<input type="hidden" name="key" value="'+ key +'">');
+document.write('名前 <input type="text" name="FROM" value="'+ cname +'"> ');
+document.write('URL <input type="text" name="mail" value="'+ cmail +'"><br>');
+document.write('<textarea name="MESSAGE"></textarea><br>');
+document.write('<div class="g-recaptcha" data-sitekey="'+ sitekey +'"></div>');
+document.write('<input type="submit" name="submit" value="書き込む">');
+document.write('<input type="text" name="url" value="" id="trap1"><input type="password" name="password" value="" id="trap2">');
+document.write('</form>');
+document.getElementById('trap1').style.display = "none";
+document.getElementById('trap2').style.display = "none";
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="[[URL]]test/kizuna.js"></script>
+
+</body>
+</html>
